@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ shloka.title }} &mdash; Subhashitani{% endblock %}
+
+{% block content %}
+<article class="shloka-page">
+  <header class="shloka-header">
+    <h1>{{ shloka.title }}</h1>
+    <div class="shloka-meta">
+      <span class="shloka-source">{{ shloka.source }}</span>
+      <span class="shloka-date">{{ shloka.date.strftime('%d %b %Y') }}</span>
+      {% for tag in shloka.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </header>
+
+  <section class="shloka-text">
+    <h2>Shloka</h2>
+    <div class="devanagari">{{ shloka.shloka_html | safe }}</div>
+  </section>
+
+  <section class="translations">
+    <h2>Translations</h2>
+    {% for translation in shloka.translations %}
+    <div class="translation">
+      <h3>{{ translation.language }}</h3>
+      <div class="translation-text">{{ translation.html | safe }}</div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <footer class="shloka-footer">
+    <a href="{{ url_for('index') }}">&larr; Back to all shlokas</a>
+  </footer>
+</article>
+{% endblock %}

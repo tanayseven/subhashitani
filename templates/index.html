@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Subhashitani{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Sanskrit Sayings</h1>
+  <p class="subtitle">A collection of subhashitas with translations</p>
+  <div class="search-box">
+    <input
+      id="search-input"
+      type="search"
+      placeholder="Search by title, source, tags&hellip;"
+      autocomplete="off"
+      aria-label="Search shlokas"
+    >
+  </div>
+  <ul id="search-results" class="search-results" hidden></ul>
+</section>
+
+<section class="recent">
+  <h2>Recent entries <span class="count">({{ total }} total)</span></h2>
+  <ul class="shloka-list">
+    {% for shloka in recent %}
+    <li class="shloka-card">
+      <a href="{{ url_for('shloka_page', slug=shloka.slug) }}">
+        <span class="shloka-title">{{ shloka.title }}</span>
+        <span class="shloka-source">{{ shloka.source }}</span>
+      </a>
+      <div class="shloka-meta">
+        <span class="shloka-date">{{ shloka.date.strftime('%d %b %Y') }}</span>
+        {% for lang in shloka.translation_languages %}
+        <span class="tag lang-tag">{{ lang }}</span>
+        {% endfor %}
+        {% for tag in shloka.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+{% endblock %}

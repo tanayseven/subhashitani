@@ -1,0 +1,227 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #fdfaf5;
+  --surface: #fff;
+  --border: #e5e0d5;
+  --text: #2c2416;
+  --text-muted: #7a6e5c;
+  --accent: #8b4513;
+  --accent-light: #f5ede3;
+  --font-body: 'Noto Serif', Georgia, serif;
+  --font-deva: 'Noto Sans Devanagari', sans-serif;
+  --radius: 6px;
+  --max-width: 760px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+}
+
+nav { max-width: var(--max-width); margin: 0 auto; }
+
+.site-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+/* ── Main ── */
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* ── Hero / Search ── */
+.hero { margin-bottom: 3rem; }
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-box input:focus { border-color: var(--accent); }
+
+.search-results {
+  list-style: none;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  background: var(--surface);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.search-results li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-results li:last-child a { border-bottom: none; }
+.search-results li a:hover { background: var(--accent-light); }
+
+.search-result-source {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* ── Recent list ── */
+.recent h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.count { font-weight: 400; }
+
+.shloka-list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
+
+.shloka-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.shloka-card a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.shloka-card a:hover .shloka-title { color: var(--accent); }
+
+.shloka-title { font-weight: 600; }
+
+.shloka-source {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.shloka-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+
+.shloka-date { font-size: 0.8rem; color: var(--text-muted); margin-right: 0.25rem; }
+
+/* ── Tags ── */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: sans-serif;
+}
+
+.lang-tag { background: #eaf0ff; color: #3355bb; }
+
+/* ── Shloka page ── */
+.shloka-page { max-width: 640px; }
+
+.shloka-header { margin-bottom: 2.5rem; }
+
+.shloka-header h1 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+
+.shloka-text { margin-bottom: 2.5rem; }
+
+.shloka-text h2,
+.translations h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.devanagari {
+  font-family: var(--font-deva);
+  font-size: 1.3rem;
+  line-height: 2;
+  color: var(--text);
+  background: var(--accent-light);
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.devanagari p { margin: 0; }
+
+.translations { display: flex; flex-direction: column; gap: 1.75rem; }
+
+.translation h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.translation-text p { margin: 0; }
+
+.shloka-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+
+.shloka-footer a { color: var(--accent); text-decoration: none; }
+.shloka-footer a:hover { text-decoration: underline; }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
