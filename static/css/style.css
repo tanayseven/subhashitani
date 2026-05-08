@@ -27,6 +27,18 @@
   --max-width: 760px;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1208;
+    --surface: #231a0e;
+    --border: #3d2e18;
+    --text: #ede0c8;
+    --text-muted: #9d8c72;
+    --accent: #c8723a;
+    --accent-light: #2e1e0a;
+  }
+}
+
 body {
   background: var(--bg);
   color: var(--text);
