@@ -53,6 +53,14 @@ nav { max-width: var(--max-width); margin: 0 auto; }
   text-decoration: none;
   letter-spacing: 0.02em;
   font-family: var(--font-deva);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-logo {
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 /* ── Main ── */

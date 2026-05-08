@@ -12,7 +12,10 @@
 <body>
   <header>
     <nav>
-      <a class="site-title" href="{{ url_for('index') }}">सुभाषितानि</a>
+      <a class="site-title" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='favicon.svg') }}" alt="" class="site-logo">
+        सुभाषितानि
+      </a>
     </nav>
   </header>
 
