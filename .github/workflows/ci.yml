@@ -40,4 +40,4 @@ jobs:
       - name: Deploy to S3
         if: github.ref == 'refs/heads/main'
         run: |
-          aws s3 sync --delete build/ s3://projects.tanay.tech/subhashitani/
+          aws s3 sync --delete build/ s3://subhashitani.tanay.tech/
