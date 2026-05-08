@@ -260,3 +260,4 @@ footer {
 
 footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+                                                            footer span[title] { cursor: help; }
