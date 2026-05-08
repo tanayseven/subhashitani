@@ -1,22 +1,20 @@
 import re
-from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 from typing import Any
 
 import frontmatter
 import markdown as md_lib
+from pydantic import BaseModel, computed_field, model_validator
 
 
-@dataclass
-class Translation:
+class Translation(BaseModel):
     language: str
     text: str
     html: str
 
 
-@dataclass
-class Shloka:
+class Shloka(BaseModel):
     slug: str
     title: str
     source: str
@@ -26,9 +24,17 @@ class Shloka:
     shloka_html: str
     translations: list[Translation]
 
+    @computed_field
     @property
     def translation_languages(self) -> list[str]:
         return [t.language for t in self.translations]
+
+    @model_validator(mode="before")
+    @classmethod
+    def coerce_tags(cls, data: Any) -> Any:
+        if isinstance(data, dict) and data.get("tags") is None:
+            data["tags"] = []
+        return data
 
 
 def _to_html(text: str) -> str:
@@ -64,18 +70,14 @@ def parse_shloka_file(path: Path) -> Shloka:
     post = frontmatter.load(str(path))
     meta: dict[str, Any] = post.metadata
 
-    raw_date = meta.get("date", date.today())
-    if isinstance(raw_date, str):
-        raw_date = datetime.strptime(raw_date, "%Y-%m-%d").date()
-
     shloka_text, translations = _parse_body(post.content)
 
     return Shloka(
         slug=meta["slug"],
         title=meta.get("title", ""),
         source=meta.get("source", ""),
-        tags=meta.get("tags", []),
-        date=raw_date,
+        tags=meta.get("tags"),
+        date=meta.get("date", date.today()),
         shloka_text=shloka_text,
         shloka_html=_to_html(shloka_text),
         translations=translations,
