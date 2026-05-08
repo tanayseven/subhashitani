@@ -43,19 +43,23 @@ tags: [tag1, tag2]           # optional list
 
 Sanskrit text...
 
+— Optional citation line (e.g. — चाणक्य नीति)
+
 ## Translations
 
-### English
+### Hindi
 
 Translation...
 
-### Hindi
+### English
 
 Translation...
 ```
 
 `slug` is the only routing key — filename and directory are ignored.
 Languages are detected dynamically from `### Heading` names; no hardcoded list.
+
+Font rendering: Sanskrit shloka text uses Sanskrit 2003 (`static/Sanskrit-2003.ttf`). Hindi translation sections get Noto Sans Devanagari (`static/NotoSansDevanagari.ttf`) via a `data-lang="hindi"` attribute on the translation wrapper div — set automatically from the `### Hindi` heading.
 
 ## Validation rules (`cli validate`)
 

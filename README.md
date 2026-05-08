@@ -37,18 +37,20 @@ date: 2026-05-08
 
 Sanskrit text goes here...
 
+— Optional citation (e.g. — चाणक्य नीति or — Bhagavad Gita 2.47)
+
 ## Translations
-
-### English
-
-Translation goes here...
 
 ### Hindi
 
 Translation goes here...
+
+### English
+
+Translation goes here...
 ```
 
-Any number of `### Language` sections are supported.
+Any number of `### Language` sections are supported. Hindi translations are rendered in Noto Sans Devanagari; Sanskrit shloka text uses Sanskrit 2003.
 
 ## Build
 
