@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="color-scheme: light dark;">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,7 @@
         <img src="{{ url_for('static', filename='favicon.svg') }}" alt="" class="site-logo">
         सुभाषितानि
       </a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </nav>
   </header>
 
@@ -28,5 +29,20 @@
     <p>सुभाषितानि &mdash; Sanskrit sayings and their translations</p>
     <p>Made with <span title="love">❤️</span> and <span title="a lot of sweat">😅</span> by <a href="https://blog.tanay.tech" target="_blank" rel="noopener">Tanay PrabhuDesai</a></p>
   </footer>
+  <script>
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = stored ? stored === 'dark' : prefersDark;
+    if (isDark) root.dataset.theme = 'dark';
+    btn.textContent = isDark ? '☀️' : '🌙';
+    btn.addEventListener('click', () => {
+      const dark = root.dataset.theme !== 'dark';
+      root.dataset.theme = dark ? 'dark' : 'light';
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      btn.textContent = dark ? '☀️' : '🌙';
+    });
+  </script>
 </body>
 </html>

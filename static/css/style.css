@@ -28,7 +28,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #1a1208;
     --surface: #231a0e;
     --border: #3d2e18;
@@ -36,7 +36,23 @@
     --text-muted: #9d8c72;
     --accent: #c8723a;
     --accent-light: #2e1e0a;
+    color-scheme: dark;
   }
+}
+
+[data-theme="dark"] {
+  --bg: #1a1208;
+  --surface: #231a0e;
+  --border: #3d2e18;
+  --text: #ede0c8;
+  --text-muted: #9d8c72;
+  --accent: #c8723a;
+  --accent-light: #2e1e0a;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
 }
 
 body {
@@ -53,10 +69,10 @@ body {
 /* ── GitHub ribbon ── */
 .github-ribbon {
   position: fixed;
-  top: 2rem;
-  right: -3.5rem;
+  top: 3.25rem;
+  right: -2rem;
   z-index: 100;
-  width: 12rem;
+  width: 13rem;
   padding: 0.4rem 0;
   background: var(--accent);
   color: #fff;
@@ -80,7 +96,26 @@ header {
   padding: 1rem 1.5rem;
 }
 
-nav { max-width: var(--max-width); margin: 0 auto; }
+nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.25rem 0.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: border-color 0.15s;
+}
+
+.theme-toggle:hover { border-color: var(--accent); }
 
 .site-title {
   font-size: 1.25rem;
