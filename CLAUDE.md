@@ -18,10 +18,11 @@ uv run python -m cli build       # freeze into build/
 | File | Role |
 |---|---|
 | `app.py` | Flask routes (`/`, `/shlokas/<slug>.html`, `/search.json`) + Frozen-Flask config |
-| `shlokas.py` | Parses markdown frontmatter and body into `Shloka` dataclasses |
+| `shlokas.py` | Parses markdown frontmatter and body into `Shloka` Pydantic models |
 | `cli.py` | `python -m cli validate` and `python -m cli build` entry points |
 | `templates/` | Jinja2 templates: `base.html`, `index.html`, `shloka.html` |
-| `static/` | `css/style.css`, `js/search.js` (client-side search over `search.json`) |
+| `static/` | `css/style.css`, `js/search.js`, fonts (`Sanskrit-2003.ttf`, `NotoSansDevanagari.ttf`), `favicon.svg` |
+| `assets/` | Source assets (fonts, icons) — copied to `static/` manually, not served directly |
 | `content/` | Source markdown files, any directory depth |
 | `build/` | Frozen output — gitignored, synced to S3 on CI |
 
@@ -65,8 +66,8 @@ Languages are detected dynamically from `### Heading` names; no hardcoded list.
 ## CI / deployment
 
 `.github/workflows/ci.yml` runs validate → build → S3 sync on every push.
-S3 deploy (`build/` → `s3://projects.tanay.tech/subhashitani/`) runs on `main` only,
-using AWS OIDC (role `subhahitani`, account id from `secrets.AWS_ACCOUNT_ID`).
+S3 deploy (`build/` → `s3://subhashitani.tanay.tech/`) runs on `main` only,
+using AWS OIDC (role `github-actions-for-subhashitani`, account id from `secrets.AWS_ACCOUNT_ID`).
 
 ## Conventions
 

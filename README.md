@@ -64,7 +64,7 @@ Output lands in `build/` and is gitignored.
 CI runs on every push. On `main`, the `build/` folder is synced to S3:
 
 ```sh
-aws s3 sync --delete build/ s3://projects.tanay.tech/subhashitani/
+aws s3 sync --delete build/ s3://subhashitani.tanay.tech/
 ```
 
 Authentication uses AWS OIDC — no stored credentials. See `.github/workflows/ci.yml`.
@@ -73,10 +73,11 @@ Authentication uses AWS OIDC — no stored credentials. See `.github/workflows/c
 
 ```
 content/          markdown source files (any directory depth)
+assets/           source assets (fonts, icons) — not served directly
 templates/        Jinja2 HTML templates
-static/           CSS and JS copied as-is into build/
+static/           CSS, JS, fonts, and images copied as-is into build/
 app.py            Flask routes + Frozen-Flask freeze
-shlokas.py        content parser
+shlokas.py        content parser (Pydantic models)
 cli.py            validate and build CLI (python -m cli)
 build/            generated static site (gitignored)
 ```
