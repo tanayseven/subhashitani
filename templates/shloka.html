@@ -23,7 +23,7 @@
   <section class="translations">
     <h2>Translations</h2>
     {% for translation in shloka.translations %}
-    <div class="translation">
+    <div class="translation" data-lang="{{ translation.language | lower }}">
       <h3>{{ translation.language }}</h3>
       <div class="translation-text">{{ translation.html | safe }}</div>
     </div>

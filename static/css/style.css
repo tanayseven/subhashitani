@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Sanskrit 2003';
+  src: url('../Sanskrit-2003.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  src: url('../NotoSansDevanagari.ttf') format('truetype');
+  font-style: normal;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -9,7 +22,7 @@
   --accent: #8b4513;
   --accent-light: #f5ede3;
   --font-body: 'Noto Serif', Georgia, serif;
-  --font-deva: 'Noto Sans Devanagari', sans-serif;
+  --font-deva: 'Sanskrit 2003', 'Noto Sans Devanagari', sans-serif;
   --radius: 6px;
   --max-width: 760px;
 }
@@ -39,6 +52,7 @@ nav { max-width: var(--max-width); margin: 0 auto; }
   color: var(--accent);
   text-decoration: none;
   letter-spacing: 0.02em;
+  font-family: var(--font-deva);
 }
 
 /* ── Main ── */
@@ -195,6 +209,7 @@ main {
   padding: 1.25rem 1.5rem;
   border-left: 3px solid var(--accent);
   border-radius: 0 var(--radius) var(--radius) 0;
+  text-align: center;
 }
 
 .devanagari p { margin: 0; }
@@ -211,6 +226,12 @@ main {
 }
 
 .translation-text p { margin: 0; }
+
+[data-lang="hindi"] .translation-text {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
 
 .shloka-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
 
