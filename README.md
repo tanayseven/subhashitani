@@ -2,6 +2,15 @@
 
 **Live site: [subhashitani.tanay.tech](https://subhashitani.tanay.tech/)**
 
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/tanayseven/subhashitani/ci.yml?branch=main&style=for-the-badge&label=CI)](https://github.com/tanayseven/subhashitani/actions)
+[![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fsubhashitani.tanay.tech&up_message=online&down_message=offline)](https://subhashitani.tanay.tech)
+[![GitHub License](https://img.shields.io/github/license/tanayseven/subhashitani?style=for-the-badge)](https://github.com/tanayseven/subhashitani/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.1.1-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)](https://docs.pydantic.dev/)
+[![Amazon S3](https://img.shields.io/badge/Amazon%20S3-FF9900?style=for-the-badge&logo=amazons3&logoColor=white)](https://aws.amazon.com/s3/)
+[![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)](https://www.markdownguide.org/)
+
 A static site generator for Sanskrit shlokas and their translations. Content is written in Markdown, built with Flask + Frozen-Flask into a deployable set of HTML pages with client-side search.
 
 ## Requirements
