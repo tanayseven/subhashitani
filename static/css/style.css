@@ -69,10 +69,10 @@ body {
 /* ── GitHub ribbon ── */
 .github-ribbon {
   position: fixed;
-  top: 3.25rem;
-  right: -2rem;
+  top: 3.75rem;
+  right: -3rem;
   z-index: 100;
-  width: 13rem;
+  width: 16rem;
   padding: 0.4rem 0;
   background: var(--accent);
   color: #fff;
