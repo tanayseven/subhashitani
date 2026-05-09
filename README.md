@@ -1,5 +1,7 @@
 # Subhashitani
 
+**Live site: [subhashitani.tanay.tech](https://subhashitani.tanay.tech/)**
+
 A static site generator for Sanskrit shlokas and their translations. Content is written in Markdown, built with Flask + Frozen-Flask into a deployable set of HTML pages with client-side search.
 
 ## Requirements
