@@ -67,28 +67,47 @@ body {
 }
 
 /* ── GitHub ribbon ── */
-.github-ribbon {
+.fork-me-wrapper {
   position: fixed;
-  top: 3.75rem;
-  right: -3rem;
+  top: 0;
+  right: 0;
   z-index: 100;
-  width: 16rem;
-  padding: 0.4rem 0;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fork-me {
+  position: absolute;
+  top: 2rem;
+  right: -3.5rem;
+  width: 14rem;
+  padding: 0.45rem 0;
   background: var(--accent);
-  color: #fff;
-  font-family: sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  transform: rotate(45deg);
   box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transform: rotate(45deg);
+  pointer-events: all;
   transition: background 0.15s;
 }
 
-.github-ribbon:hover { background: var(--text); }
+.fork-me:hover { background: var(--text); }
+
+.fork-me-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fork-me-text {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 
 /* ── Header ── */
 header {
