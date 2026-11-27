@@ -2,5 +2,5 @@
 lockfile = true
 
 [tools]
-python = "3.13"
+python = "3.13.18"
 uv = "0.13.10"
